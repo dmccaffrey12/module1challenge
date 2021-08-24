@@ -64,15 +64,25 @@ loan = {
 
 # @TODO: Use get() on the dictionary of additional information to extract the Future Value and Remaining Months on the loan.
 # Print each variable.
-# YOUR CODE HERE!
 
+current_future_value = loan.get("future_value")
+current_remaining_months = loan.get("remaining_months")
+
+print(current_future_value)
+print(current_remaining_months)
 
 # @TODO: Use the formula for Present Value to calculate a "fair value" of the loan.
 # Use a minimum required return of 20% as the discount rate.
 #   You'll want to use the **monthly** version of the present value formula.
 #   HINT: Present Value = Future Value / (1 + Discount_Rate/12) ** remaining_months
 
-# YOUR CODE HERE!
+hurdle_rate = (loan.get("future_value") - loan.get("loan price")) / loan.get("loan_price")
+print(hurdle_rate)
+
+discount_rate = 0.20
+present_value = current_future_value / (1 + discount_rate / 12) ** current_remaining_months
+
+print(present_value)
 
 # If Present Value represents what the loan is really worth, does it make sense to buy the loan at its cost?
 # @TODO: Write a conditional statement (an if-else statement) to decide if the present value represents the loan's fair value.
